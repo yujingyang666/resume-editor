@@ -1,23 +1,54 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+  <div class="page">
+    <header>
+      <Topbar/>
+    </header>
+    <main>
+      <Editor/>
+      <Preview/>
+    </main>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import 'normalize.css/normalize.css'
+  import './assets/reset.css'
+
+  import Topbar from './components/Topbar'
+  import Editor from './components/Editor'
+  import Preview from './components/Preview'
+
+  export default {
+    name: 'app',
+    data:function(){
+      return{
+        text:"你好"
+      }
+    },
+    components:{Topbar,Editor,Preview}
+  }
+
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+ .page{
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   background: #EAEBEC;
+ }
+ .page>main{
+   flex-grow:1;
+   min-width: 1024px;
+   max-width: 1440px;
+   margin-top:16px;
+   margin-bottom: 16px;
+   display: flex;
+   width:100%;
+   align-self: center;
+   justify-content: space-between;
+   padding:0 16px;
+ }
+
+
 </style>
