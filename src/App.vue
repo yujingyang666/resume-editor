@@ -17,7 +17,7 @@
   import Topbar from './components/Topbar'
   import Editor from './components/Editor'
   import Preview from './components/Preview'
-
+  import icons from './assets/icons'
   export default {
     name: 'app',
     data:function(){
@@ -25,19 +25,22 @@
         text:"你好"
       }
     },
-    components:{Topbar,Editor,Preview}
+    components:{Topbar,Editor,Preview},
+    created(){
+      document.body.insertAdjacentHTML('afterbegin',icons)
+    }
   }
 
 </script>
 
-<style>
+<style lang="scss">
  .page{
    height: 100vh;
    display: flex;
    flex-direction: column;
    background: #EAEBEC;
- }
- .page>main{
+
+ >main{
    flex-grow:1;
    min-width: 1024px;
    max-width: 1440px;
@@ -50,5 +53,12 @@
    padding:0 16px;
  }
 
-
+ }
+svg.icon{
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+  vertical-align: -0.1em;
+  font-size:16px;
+}
 </style>
