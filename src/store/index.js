@@ -1,3 +1,4 @@
+import 'babel-polyfill'  //vuex兼容IE引入polyfill
 import Vuex from 'vuex'
 import Vue from 'vue'
 

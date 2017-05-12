@@ -53,8 +53,8 @@
 
  }
 svg.icon{
-  height: 1em;
-  width: 1em;
+  height: 10px;
+  width: 10px;
   fill: currentColor;
   vertical-align: -0.1em;
   font-size:16px;
