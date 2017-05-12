@@ -18,13 +18,11 @@
   import Editor from './components/Editor'
   import Preview from './components/Preview'
   import icons from './assets/icons'
+  import store from './store/index'
+
   export default {
     name: 'app',
-    data:function(){
-      return{
-        text:"你好"
-      }
-    },
+    store,
     components:{Topbar,Editor,Preview},
     created(){
       document.body.insertAdjacentHTML('afterbegin',icons)

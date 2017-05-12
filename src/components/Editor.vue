@@ -2,7 +2,7 @@
   <div id="editor">
     <nav>
       <ol>
-        <li v-for="(item,index) in resume.visibleItems" v-bind:class="{active: item.field === selected}" @click=change(item.field)>
+        <li v-for="(item,index) in resume.visibleItems" v-bind:class="{active: item.field === selected}" @click="selected = item.field">
           <svg class="icon">
             <use :xlink:href='`#icon-${item.icon}`'></use>
           </svg>
@@ -32,93 +32,18 @@
 <script>
   export default {
     name: 'Editor',
-    data() {
-      return {
-        selected: "profile",
-        resume: {
-          visibleItems: [{
-              field: 'profile',
-              icon: 'id'
-            },
-            {
-              field: 'work history',
-              icon: 'work'
-            },
-            {
-              field: 'education',
-              icon: 'book'
-            },
-            {
-              field: 'projects',
-              icon: 'heart'
-            },
-            {
-              field: 'awards',
-              icon: 'cup'
-            },
-            {
-              field: 'contacts',
-              icon: 'phone'
-            }
-          ],
-          profile: {
-            name: '',
-            city: '',
-            title: ''
-          },
-          'work history': [{
-              company: 'AL',
-              content: '我的第二份工作是'
-            },
-            {
-              company: 'TX',
-              content: '我的第一份工作是'
-            }
-          ],
-          education: [{
-              school: 'AL',
-              content: '文字'
-            },
-            {
-              school: 'TX',
-              content: '文字'
-            },
-          ],
-          projects: [{
-              name: 'project A',
-              content: '文字'
-            },
-            {
-              name: 'project B',
-              content: '文字'
-            },
-          ],
-          awards: [{
-              name: 'awards A',
-              content: '文字'
-            },
-            {
-              name: 'awards B',
-              content: '文字'
-            },
-          ],
-          contacts: [{
-              contact: 'phone',
-              content: '13812345678'
-            },
-            {
-              contact: 'qq',
-              content: '12345678'
-            },
-          ],
-          others: {}
+    computed: {
+      selected: {
+        get() {
+          return this.$store.state.selected
+        },
+        set(value) {
+          return this.$store.commit('switchTab', value)
         }
-      }
-    },
-    methods: {
-      change: function (target) {
-        this.selected = target
-      }
+      },
+      resume() {
+        return this.$store.state.resume
+      },
     }
   }
 
@@ -126,7 +51,7 @@
 
 <style lang="scss" scoped>
   #editor {
-    width: 35%;
+    min-width: 35%;
     background: #FFF;
     color: #000;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);

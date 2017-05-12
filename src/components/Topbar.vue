@@ -1,7 +1,7 @@
 <template>
     <div id="topbar">
        <div class="wrapper">
-           <span class="logo">Resumer</span>
+           <span class="logo">在线简历编辑器</span>
 
        <div class="action">
            <button class="primary">保存</button>
