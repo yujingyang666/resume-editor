@@ -8,6 +8,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state:{
         selected: "profile",
+        user:{
+          id:'',
+          username:''
+        },
         resume: {
           visibleItems: [{
               field: 'profile',
@@ -95,6 +99,26 @@ export default new Vuex.Store({
     mutations:{
         switchTab(state,payload){
             state.selected=payload;
-        }
+            localStorage.setItem('state',JSON.stringify(state)) //把state值保存到localStorage
+        },
+        updateResume(state,{field,subfield,value}){
+          state.resume[field][subfield]=value
+          localStorage.setItem('state',JSON.stringify(state))
+        },
+        updateResume2(state,{item,index,subfield,value}){
+          state.resume[item][index][subfield]=value
+          localStorage.setItem('state',JSON.stringify(state))
+        },
+        setUser(state,payload){
+          Object.assign(state.user, payload)
+          console.log('state.user.username:'+state.user.username)
+        },
+        removeUser(state){
+          state.user.id=''
+        },
+        initState(state,payload){
+          Object.assign(state,payload) //从localStorage初始化state的值
+        },
+
     }
 })
