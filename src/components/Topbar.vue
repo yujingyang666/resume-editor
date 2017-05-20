@@ -17,7 +17,7 @@
         </div>
         <div class="save" v-show="saveVisable">
           <button class="button primary" @click.prevent="saveOrUpdate">保存</button>
-        <button class="button">预览</button>
+        <router-link class="button" to="/previewWeb">预览</router-link>
         </div>
         
         <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
