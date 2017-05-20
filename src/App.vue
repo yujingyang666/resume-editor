@@ -34,12 +34,30 @@
     },
     created() {  //钩子，每次加载完执行
       document.body.insertAdjacentHTML('afterbegin', icons)
-      let state =localStorage.getItem('state')
-      if(state){
-        state =JSON.parse(state)
+      // let state =localStorage.getItem('state')
+      // if(state){
+      //   state =JSON.parse(state)
+      // }
+      // this.$store.commit('initState',state)  //从localStorage中初始化数据
+      this.$store.commit('setUser', getAVUser()) 
+      this.fetch() //从缓存中获取上次登录数据
+      this.$store.commit('setSaveVisable', true)
+    },
+    methods:{
+      fetch() {
+        if (this.$store.state.user) {
+          var query = new AV.Query('resume');
+          query.find().then((resumes) => {
+            let avresumes = resumes[0]
+            let state = avresumes.attributes.content
+            this.$store.commit('initState_net',state)
+            this.$store.commit('updateResumeid', avresumes.id)
+            console.log('更新成功')
+          }, function (error) {
+            console.error(error)
+          })
+        }
       }
-      this.$store.commit('initState',state)  //从localStorage中初始化数据
-      this.$store.commit('setUser', getAVUser())  //从缓存中获取上次登录数据
     }
   }
 

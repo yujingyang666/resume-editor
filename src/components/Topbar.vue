@@ -14,12 +14,12 @@
         <div v-else class="userActions">
           <a class="button primary" href="#" @click.prevent="signUpDialogVisible = true">注册</a>
           <a class="button" href="#" @click.prevent="signInDialogVisible = true">登录</a>
-
-
         </div>
-
-        <!--<button class="button primary">保存</button>
-        <button class="button">预览</button>-->
+        <div class="save" v-show="saveVisable">
+          <button class="button primary" @click.prevent="saveOrUpdate">保存</button>
+        <button class="button">预览</button>
+        </div>
+        
         <MyDialog title="注册" :visible="signUpDialogVisible" @close="signUpDialogVisible = false">
           <SignUpForm @success="login($event)" />
         </MyDialog>
@@ -43,7 +43,7 @@
     data() {
       return {
         signUpDialogVisible: false,
-        signInDialogVisible: false
+        signInDialogVisible: false,
 
       }
     },
@@ -53,23 +53,63 @@
       },
       logined() {
         return this.user.id
+      },
+      saveVisable(){
+        return this.$store.state.saveVisable
       }
     },
+     
     components: {
       MyDialog,
       SignUpForm,
       SignInForm
     },
     methods: {
-      login(user) {
+      login(user) {   //本地加载user数据
         this.signUpDialogVisible = false
         this.signInDialogVisible = false
         this.$store.commit('setUser', user)
+        this.$store.commit('setSaveVisable', true)
       },
       signOut() {
         AV.User.logOut()
-        this.$store.commit('removeUser')
-      }
+        this.$store.commit('removedate')
+        this.$store.commit('setSaveVisable', false)
+      },
+
+      save() { //保持数据到leadCloud
+        console.log('执行save')
+        let dataString = JSON.stringify(this.$store.state.resume)
+        var AVresume = AV.Object.extend('resume');
+        var avresume = new AVresume();
+        var acl = new AV.ACL()
+        acl.setReadAccess(AV.User.current(), true)
+        acl.setWriteAccess(AV.User.current(), true)
+        avresume.set('content', dataString);
+        avresume.setACL(acl)
+        avresume.save().then((resume) => {
+          // 成功保存之后，执行其他逻辑.
+          this.$store.commit('updateResumeid', resume.id)
+        }, function (error) {
+          // 异常处理
+          console.error('保存失败');
+        });
+      },
+      update() {
+        let dataString = JSON.stringify(this.$store.state.resume)
+        let avresume = AV.Object.createWithoutData('resume', this.$store.state.resume.id)
+        avresume.set('content', dataString)
+        avresume.save().then(() => {
+          console.log('更新成功')
+        })
+      },
+      saveOrUpdate() {
+        if (this.$store.state.resume.id) {
+          this.update()
+        } else {
+          this.save()
+        }
+      },
     }
   }
 
@@ -104,6 +144,7 @@
     cursor: pointer;
     font-size: 18px;
     background: #ddd;
+    margin-right: 0.5em;
     color: #222;
     text-decoration: none;
     display: inline-flex;
@@ -119,10 +160,10 @@
     }
   }
 
-  .actons {
+  .action {
     display: flex;
     .userActions {
-      margin-right: 3em;
+      
       .welcome {
         margin-right: .5em
       }

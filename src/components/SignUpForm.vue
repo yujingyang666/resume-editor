@@ -3,7 +3,7 @@
     <form @submit.prevent="signUp">
       <div class="row">
         <label>用户名</label>
-        <input type="text" v-model="formData.username" required> 
+        <input type="text" v-model="formData.username" required>
       </div>
       <div class="row">
         <label>密码</label>
@@ -30,7 +30,7 @@
           username: '',
           password: ''
         },
-        errorMessage:''
+        errorMessage: ''
       }
     },
     created() {},
@@ -48,10 +48,12 @@
             username: loginedUser.attributes.username,
             id: loginedUser.id
           })
+         
         }, (error) => {
           this.errorMessage = getErrorMessage(error)
         });
-      }
+      },
+     
     }
   }
 
