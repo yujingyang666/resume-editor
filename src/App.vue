@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page">
+    <!--<div class="page">
       <header>
         <Topbar/>
       </header>
@@ -8,7 +8,8 @@
         <Editor/>
         <Preview/>
       </main>
-    </div>
+    </div>-->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -16,22 +17,22 @@
   import 'normalize.css/normalize.css'
   import './assets/reset.css'
 
-  import Topbar from './components/Topbar'
-  import Editor from './components/Editor'
-  import Preview from './components/Preview'
+  // import Topbar from './components/Topbar'
+  // import Editor from './components/Editor'
+  // import Preview from './components/Preview'
   import icons from './assets/icons'
-  import store from './store/index'
+  // import store from './store/index'
   import AV from './lib/leancloud'
   import getAVUser from './lib/getAVUser'
 
   export default {
     name: 'app',
-    store,
-    components: {
-      Topbar,
-      Editor,
-      Preview
-    },
+    // store,
+    // components: {
+    //   Topbar,
+    //   Editor,
+    //   Preview
+    // },
     created() {  //钩子，每次加载完执行
       document.body.insertAdjacentHTML('afterbegin', icons)
       // let state =localStorage.getItem('state')
