@@ -1,6 +1,6 @@
 
 <template>
- <div>
+ <div class="previewWeb">
      <Preview/>  
  </div>
 </template>
@@ -14,3 +14,10 @@ export default {
   }
 }
 </script>
+
+<style >
+ .previewWeb{
+     max-width:1000px;
+     margin: 20px auto; 
+ }
+</style>

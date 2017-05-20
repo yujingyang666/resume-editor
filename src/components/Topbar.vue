@@ -1,8 +1,11 @@
 <template>
   <div id="topbar">
     <div class="wrapper">
-
-      <span class="logo">在线简历编辑器</span>
+      
+      <div>
+        <span class="logo">在线简历编辑器</span>
+        <span class="author">—— code by yujingyang</span>
+      </div>
 
       <div class="action">
 
@@ -132,8 +135,12 @@
       padding: 0 16px;
     }
     .logo {
-      font-size: 24px;
+      font-size: 28px;
       color: #000;
+    }
+    .author{
+      margin-left: 20px;
+      color: gray;
     }
   }
 

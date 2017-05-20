@@ -22,7 +22,10 @@
       // this.$store.commit('initState',state)  //从localStorage中初始化数据
       this.$store.commit('setUser', getAVUser()) 
       this.fetch() //从缓存中获取上次登录数据
-      this.$store.commit('setSaveVisable', true)
+      if(this.$store.state.user.id){   
+        this.$store.commit('setSaveVisable', true)
+      }
+      
     },
     methods:{
       fetch() {
@@ -33,7 +36,7 @@
             let state = avresumes.attributes.content
             this.$store.commit('initState_net',state)
             this.$store.commit('updateResumeid', avresumes.id)
-            console.log('更新成功')
+            console.log('更新简历数据成功')
           }, function (error) {
             console.error(error)
           })
