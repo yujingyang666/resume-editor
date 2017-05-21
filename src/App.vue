@@ -53,10 +53,12 @@
     display: flex;
     flex-direction: column;
     background: #EAEBEC;
+    min-height: 0;
     >main {
       flex-grow: 1;
       min-width: 1024px;
       max-width: 1440px;
+      height: 0px;   //兼容IE&firefox子元素overflow失效
       margin-top: 16px;
       margin-bottom: 16px;
       display: flex;

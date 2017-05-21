@@ -248,6 +248,16 @@ export default new Vuex.Store({
         },
         setSaveVisable(state,payload){
           state.saveVisable=payload
+        },
+        addResumeSubfield(state,payload){
+          let empty=JSON.parse(JSON.stringify(state.initdata[payload][0]))
+          for (let key in empty){
+            empty[key]=''
+          }
+          state.resume[payload].push(empty)
+        },
+        removeResumeSubfield(state,{field,index}){
+            state.resume[field].splice(index,1)
         }
 
 
