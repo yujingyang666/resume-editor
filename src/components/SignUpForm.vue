@@ -10,8 +10,8 @@
         <input type="password" v-model="formData.password" required>
       </div>
       <div class="actions">
-        <input type="submit" value="提交">
         <span class="errorMessage">{{errorMessage}}</span>
+        <input type="submit" value="提交">
       </div>
     </form>
   </div>

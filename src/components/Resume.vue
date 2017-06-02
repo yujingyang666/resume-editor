@@ -1,12 +1,12 @@
 <<template>
   <div>
       <div class="page">
-      <header>
-        <Topbar/>
+      <header  >
+        <Topbar />
       </header>
-      <main>
-        <Editor/>
-        <Preview/>
+      <main >
+        <Editor class="main animated zoomInLeft" />
+        <Preview  class="main animated zoomInRight"/>
       </main>
     </div>
   </div>
@@ -25,5 +25,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+.main{
+ -webkit-animation-duration: 0.3s;
+-moz-animation-duration: 0.3s;
+}
 
 </style>

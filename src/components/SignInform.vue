@@ -9,9 +9,9 @@
         <label>密码</label>
         <input type="password" required v-model="formData.password">
       </div>
-      <div class="actions">
+      <div class="actions">  
+        <span class="errorMessage">{{errorMessage}}</span>
         <input type="submit" value="提交">
-        <span>{{errorMessage}}</span>
       </div>
     </form>
   </div>
