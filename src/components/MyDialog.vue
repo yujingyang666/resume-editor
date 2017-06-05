@@ -56,11 +56,12 @@
     min-width: 25em;
     border-radius: 5px;
     overflow: hidden;
-    position: fixed;
+    display: flex;
     flex-direction: column; 
     box-shadow: 0px 0px 10px #888888;
-     -webkit-animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
     -moz-animation-duration: 0.3s;
+    
     >header {
       padding: 0.6em 1em;
       display: flex;
