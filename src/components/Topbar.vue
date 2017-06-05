@@ -69,8 +69,12 @@
     },
     methods: {
       login(user) {   //本地加载user数据
-        this.signUpDialogVisible = false
-        this.signInDialogVisible = false
+        this.$store.commit('changeMyDialogCss',false)
+        
+        setTimeout(()=>(this.signUpDialogVisible = false,
+        this.signInDialogVisible = false,
+        this.$store.commit('changeMyDialogCss',true)),500)
+
         this.$store.commit('setUser', user)
         this.$store.commit('setSaveVisable', true)
       },

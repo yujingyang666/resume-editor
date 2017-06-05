@@ -9,6 +9,7 @@ export default new Vuex.Store({
     state:{
         selected: "profile",
         saveVisable:false,
+        MyDialogCssIn:true,
         user:{
           id:'',
           username:''
@@ -258,6 +259,9 @@ export default new Vuex.Store({
         },
         removeResumeSubfield(state,{field,index}){
             state.resume[field].splice(index,1)
+        },
+        changeMyDialogCss(state,payload){
+           state.MyDialogCssIn=payload;
         }
 
 

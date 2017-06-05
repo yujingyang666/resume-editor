@@ -1,6 +1,6 @@
 <template>
-  <div class="Wrap animated fadeIn " v-show="visible">
-    <div class="dialog animated zoomInDown">
+  <div :class="CSSIn?'Wrap animated fadeIn':'Wrap animated fadeOut' " v-show="visible">
+    <div :class="CSSIn?'dialog animated fadeInDown':'dialog animated fadeOutUp' ">
       <header>{{title}}
         <span class="close" @click="close">X</span>
       </header>
@@ -16,9 +16,17 @@
   export default {
     name: 'Dialog',
     props: ['title', 'visible'],
+    computed:{
+     CSSIn(){
+       return this.$store.state.MyDialogCssIn
+     }
+    },
     methods: {
       close() {
-        this.$emit('close')
+        this.$store.commit('changeMyDialogCss',false)
+        setTimeout(()=>(this.$emit('close'),this.$store.commit('changeMyDialogCss',true)),500)
+        
+        
       }
     }
   }
@@ -38,44 +46,45 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-animation-duration: 0.2s;
+    -webkit-animation-duration: 0.3s;
     -moz-animation-duration: 0.3s;
   }
 
   .dialog {
     background: white;
     min-height: 10em;
-    min-width: 22em;
+    min-width: 25em;
     border-radius: 5px;
     overflow: hidden;
     position: fixed;
     flex-direction: column; 
-     -webkit-animation-duration: 0.2s;
+    box-shadow: 0px 0px 10px #888888;
+     -webkit-animation-duration: 0.3s;
     -moz-animation-duration: 0.3s;
     >header {
-      padding: 0.6em;
+      padding: 0.6em 1em;
       display: flex;
-      color: #FFF;
-      font-size: 1.2em;
-      background-color: #62b900;
+      color: #000;
+      font-size: 1.1em;
+      background-color: #EEE;
       justify-content: space-between;
-      align-items:flex-start;
+      align-items:center;
       >span{
         font-size: 0.6em;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 1.3em;
-        height: 1.3em;
+        width: 1.5em;
+        height: 1.5em;
         border: 1px solid #FFF;
         border-radius: 3px;
         background-color: #FFF;
-        color: #62b900;
+        color: #000;
         cursor: pointer;
       }
     }
     >main {
-      padding: 16px;
+      padding:  1em 2em;
       >div{
         form{
           display: flex;
@@ -93,7 +102,10 @@
             }
             input{
               flex-grow: 1;
-              height: 100%;
+              
+              border:0px;
+              outline: none;
+              border-bottom: 1px solid #BBB;
             }
   
           }
