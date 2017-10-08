@@ -1,27 +1,12 @@
-# resume-editor
+# 基于Vue.js的在线简历编辑器
+> 技术栈：ES6 React HTML 5 CSS 3 leancloud
 
-> A Vue.js project
+[在线地址](https://yujingyang666.github.io/resume-editor/dist/index.html#/)
 
-## Build Setup
+### 功能介绍
+- 一个PC端在线简历编辑器，具备登录/注册/保存功能，无须生成文档，在线预览打印。 
 
-``` bash
-# install dependencies
-npm install
+### 技术细节
+- 本页面应用使用了Vue-cli+Vue-router+Vuex全家桶实现前端页面，第三方云服务leancloud做后端支持，并使用SASS预编译CSS作为辅助。基于第一次web应用了解到状态管理的重要性后，本页面使用了Vuex状态管理。
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+![resume](https://yujingyang666.github.io/ImgeStorage/vue1.jpg)
