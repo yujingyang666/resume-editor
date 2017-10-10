@@ -11,7 +11,11 @@ export default {
   name:'previewWeb',
   components:{
     Preview
+  },
+  mounted(){
+    setTimeout(()=>(alert('按ctrl-p打印本页')),1000)
   }
+  
 }
 </script>
 
