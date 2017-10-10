@@ -13,7 +13,8 @@ export default {
     Preview
   },
   mounted(){
-    setTimeout(()=>(alert('按ctrl-p打印本页')),1000)
+    setTimeout(()=>(alert('按 ctrl+p 打印简历或保存为pdf')),1000)
+   
   }
   
 }

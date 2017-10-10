@@ -29,6 +29,7 @@ export default {
 .main{
  -webkit-animation-duration: 0.3s;
 -moz-animation-duration: 0.3s;
+position:relative;
 }
 
 </style>
