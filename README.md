@@ -1,12 +1,11 @@
-# »ùÓÚVue.jsµÄÔÚÏß¼òÀú±à¼­Æ÷
-> ¼¼ÊõÕ»£ºES6 React HTML 5 CSS 3 leancloud
+# åŸºäºŽVue.jsçš„åœ¨çº¿ç®€åŽ†ç¼–è¾‘å™¨
+> æŠ€æœ¯æ ˆï¼šES6 Vue HTML 5 CSS 3 leancloud
 
-[ÔÚÏßµØÖ·](https://yujingyang666.github.io/resume-editor/dist/index.html#/)
+[åœ¨çº¿åœ°å€](https://yujingyang666.github.io/resume-editor/dist/index.html#/)
 
-### ¹¦ÄÜ½éÉÜ
-- Ò»¸öPC¶ËÔÚÏß¼òÀú±à¼­Æ÷£¬¾ß±¸µÇÂ¼/×¢²á/±£´æ¹¦ÄÜ£¬ÎÞÐëÉú³ÉÎÄµµ£¬ÔÚÏßÔ¤ÀÀ´òÓ¡¡£ 
+### åŠŸèƒ½ä»‹ç»
+- ä¸€ä¸ªPCç«¯åœ¨çº¿ç®€åŽ†ç¼–è¾‘å™¨ï¼Œå…·å¤‡ç™»å½•/æ³¨å†Œ/ä¿å­˜åŠŸèƒ½ï¼Œæ— é¡»ç”Ÿæˆæ–‡æ¡£ï¼Œåœ¨çº¿é¢„è§ˆæ‰“å°ã€‚ 
 
-### ¼¼ÊõÏ¸½Ú
-- ±¾Ò³ÃæÓ¦ÓÃÊ¹ÓÃÁËVue-cli+Vue-router+VuexÈ«¼ÒÍ°ÊµÏÖÇ°¶ËÒ³Ãæ£¬µÚÈý·½ÔÆ·þÎñleancloud×öºó¶ËÖ§³Ö£¬²¢Ê¹ÓÃSASSÔ¤±àÒëCSS×÷Îª¸¨Öú¡£»ùÓÚµÚÒ»´ÎwebÓ¦ÓÃÁË½âµ½×´Ì¬¹ÜÀíµÄÖØÒªÐÔºó£¬±¾Ò³ÃæÊ¹ÓÃÁËVuex×´Ì¬¹ÜÀí¡£
-
+### æŠ€æœ¯ç»†èŠ‚
+- æœ¬é¡µé¢åº”ç”¨ä½¿ç”¨äº†Vue-cli+Vue-router+Vuexå…¨å®¶æ¡¶å®žçŽ°å‰ç«¯é¡µé¢ï¼Œç¬¬ä¸‰æ–¹äº‘æœåŠ¡leancloudåšåŽç«¯æ”¯æŒï¼Œå¹¶ä½¿ç”¨SASSé¢„ç¼–è¯‘CSSä½œä¸ºè¾…åŠ©ã€‚
 ![resume](https://yujingyang666.github.io/ImgeStorage/vue1.jpg)
